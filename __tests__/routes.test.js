@@ -27,6 +27,18 @@ describe('service routes', () => {
       .then((res) => {
         expect(res.body).toEqual(order);
       });
+  });
 
+  test('updates an order by id via PUT', async () => {
+    const order = await Order.insert({ quantity: 2 });
+
+    order.quantity = 5;
+
+    return request(app)
+      .put(`/api/v1/orders/${order.id}`)
+      .send(order)
+      .then((res) => {
+        expect(res.body).toEqual(order);
+      });
   });
 });
