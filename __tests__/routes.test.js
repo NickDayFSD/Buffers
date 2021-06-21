@@ -1,16 +1,11 @@
-// import { jest } from '@jest/globals';
 import request from 'supertest';
 
 import pool from '../lib/utils/pool.js';
 import setup from '../data/setup.js';
 import app from '../lib/app.js';
-import Order from '../lib/models/Order.js';
 
-jest.mock('twilio', () => () => ({
-  messages: {
-    create: jest.fn(),
-  },
-}));
+// import Order from '../lib/models/Order.js';
+
 
 describe('service routes', () => {
   beforeEach(async () => {

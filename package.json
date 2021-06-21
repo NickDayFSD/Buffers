@@ -28,6 +28,7 @@
   "dependencies": {
     "@tensorflow-models/toxicity": "^1.0.3",
     "@tensorflow/tfjs": "^3.7.0",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "jet": "^0.6.6-0",
     "pg": "^8.6.0",
