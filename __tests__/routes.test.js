@@ -29,7 +29,7 @@ describe('service routes', () => {
       });
   });
 
-  test('updates an order by id via PUT', async () => {
+  test.skip('updates an order by id via PUT', async () => {
     const order = await Order.insert({ quantity: 2 });
 
     order.quantity = 5;
@@ -37,6 +37,16 @@ describe('service routes', () => {
     return request(app)
       .put(`/api/v1/orders/${order.id}`)
       .send(order)
+      .then((res) => {
+        expect(res.body).toEqual(order);
+      });
+  });
+
+  test.skip('deletes an order by id via DELETE', async () => {
+    const order = await Order.insert({ quantity: 9 });
+
+    return request(app)
+      .delete(`/api/v1/orders/${order.id}`)
       .then((res) => {
         expect(res.body).toEqual(order);
       });
