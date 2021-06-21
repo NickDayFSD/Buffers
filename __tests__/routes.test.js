@@ -11,7 +11,7 @@ describe('service routes', () => {
     return setup(pool);
   });
 
-  test.skip('creates a new order in our database and send a text message notification', async () => {
+  test('creates a new order in our database and send a text message notification', async () => {
     const res = await request(app)
       .post('/api/v1/orders')
       .send({ quantity: 10 });
@@ -29,7 +29,7 @@ describe('service routes', () => {
       });
   });
 
-  test.skip('updates an order by id via PUT', async () => {
+  test('updates an order by id via PUT', async () => {
     const order = await Order.insert({ quantity: 2 });
 
     order.quantity = 5;
@@ -42,7 +42,7 @@ describe('service routes', () => {
       });
   });
 
-  test.skip('deletes an order by id via DELETE', async () => {
+  test('deletes an order by id via DELETE', async () => {
     const order = await Order.insert({ quantity: 9 });
 
     return request(app)
